@@ -11,6 +11,9 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 
 function PageContainer(props) {
+
+  document.title = "Movie Rate"
+
     return (
       <div >
       <BrowserRouter>
@@ -35,13 +38,13 @@ function PageContainer(props) {
 
           <Route path="/" exact component={SignUpPage} />*/}
 
-          <Route path="/" exact component={GuestHomePage} />
+          <Route path="/movie_project/" exact component={GuestHomePage} />
 
           {/*<Route path="/guestaccountpage" component={GuestAccountPage} />*/}
 
-          <Route path="/guestaboutmovie" component={GuestAboutMoviePage} />
+          <Route path="/movie_project/guestaboutmovie/" component={GuestAboutMoviePage} />
 
-          <Route path="/guestsearchpage" component={GuestSearchPage} />
+          <Route path="/movie_project/guestsearchpage/" component={GuestSearchPage} />
 
         </Switch>
       </BrowserRouter>

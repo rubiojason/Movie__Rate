@@ -104,7 +104,7 @@ function GuestNowPlaying({ nowplayfrontpic, nowplaybackpic, nowplaytitle,
                   {
                     frontpic.map(pic => 
                       <div className="row__inner">
-                        <Link to="/guestaboutmovie">
+                        <Link to="/movie_project/guestaboutmovie/">
                           <div className="tile" onClick={() => handleMovieImgClick(pic)} >
                             <div className="tile__media" >
                               <img alt="" src={IMG_URL + IMG_SIZE + pic} />
