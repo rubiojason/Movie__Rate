@@ -4,7 +4,7 @@ import { loginPage, signupPage, guestPage, guestSearchPage } from './redux'
 import GuestHomePage from './GuestFolder/GuestHomePage'
 import GuestAboutMoviePage from './GuestFolder/GuestAboutMoviePage'
 import GuestSearchPage from './GuestFolder/GuestSearchPage'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect ,Route, Switch } from 'react-router-dom';
 
 
 function PageContainer(props) {
@@ -16,11 +16,27 @@ function PageContainer(props) {
       <BrowserRouter>
         <Switch>
 
-          <Route path="/movie_project/" exact component={GuestHomePage} />
+          {/*<Redirect exact from="/Movie-Rate" to="/Movie_Rate" />*/}
 
-          <Route path="/movie_project/guestaboutmovie/" component={GuestAboutMoviePage} />
+          <Route path="/Movie_Rate" exact component={GuestHomePage} />
 
-          <Route path="/movie_project/guestsearchpage/" component={GuestSearchPage} />
+          <Route path="/Movie_Rate/guestaboutmovie" component={GuestAboutMoviePage} />
+
+          <Route path="/Movie_Rate/guestsearchpage" component={GuestSearchPage} />
+
+
+
+          {/*
+          <Redirect exact from="/Hy-Wave" to="/HyWave/home" />
+                    
+                <Route path="/HyWave/home" component={Main} /> 
+
+                <Route path="/HyWave/ocean" component={Ocean} />
+
+                <Route path="/HyWave/resorts" component={Resorts} />
+
+                <Route path="/HyWave/animals" component={Animals} />
+           */}
 
         </Switch>
       </BrowserRouter>

@@ -177,7 +177,7 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
 
                 <nav>
                     <div className="img-movie-container">
-                        <Link to="/movie_project/">
+                        <Link to="/Movie_Rate/">
                             <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                         </Link>
                     </div>
@@ -207,7 +207,7 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
                                 
                                     <div className="row__inner">
                                         <div className="tile" onClick={() => handleMovieImgClick(pic)} >
-                                            <Link to="/movie_project/guestaboutmovie/">
+                                            <Link to="/Movie_Rate/guestaboutmovie/">
                                                 <div className="tile__media">
                                                     <img key={pic} alt="" src={IMG_URL + IMG_SIZE + pic} />
                                                 </div>
@@ -237,7 +237,7 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
                                 
                                     <div className="row__inner">
                                         <div className="tile" onMouseLeave={putDownOpacity} onClick={() => handleTvImgClick(pic)}>
-                                            <Link to="/movie_project/guestaboutmovie/">
+                                            <Link to="/Movie_Rate/guestaboutmovie/">
                                                 <div className="tile__media">
                                                     <img id="search-img-picture" alt="" src={IMG_URL + IMG_SIZE + pic} />
                                                 </div>

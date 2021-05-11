@@ -138,7 +138,7 @@ function GuestTopRated({ topratedfrontpic, topratedbackpic, topratedtitle,
                     frontpic.map(pic => 
                       <div className="row__inner">
                           <div className="tile" onClick={() => handleMovieImgClick(pic)} >
-                            <Link to="/movie_project/guestaboutmovie/">
+                            <Link to="/Movie_Rate/guestaboutmovie/">
 
                               <div className="tile__media" >
                                 <img alt="" src={IMG_URL + IMG_SIZE + pic} />

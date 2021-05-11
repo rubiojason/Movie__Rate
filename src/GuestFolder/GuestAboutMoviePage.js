@@ -322,7 +322,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={popNavImgAnim} >
-                                <Link to="/movie_project/">
+                                <Link to="/Movie_Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
@@ -410,7 +410,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={ratedNavImgAnim}>
-                                <Link to="/movie_project/">
+                                <Link to="/Movie_Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                                 
@@ -499,7 +499,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={playingNavImgAnim} >
-                            <Link to="/movie_project/">
+                            <Link to="/Movie_Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
@@ -588,7 +588,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={popTvNavImgAnim} >
-                            <Link to="/movie_project/">
+                            <Link to="/Movie_Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
@@ -677,7 +677,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={airingNavImgAnim} >
-                            <Link to="/movie_project/">
+                            <Link to="/Movie_Rate/">
                                <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
@@ -765,7 +765,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={searchNavImgAnim} >
-                            <Link to="/movie_project/">
+                            <Link to="/Movie_Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
@@ -853,7 +853,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={searchTvNavImgAnim} >
-                                <Link to="/movie_project/">
+                                <Link to="/Movie_Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
