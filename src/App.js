@@ -1,4 +1,4 @@
-import LoginPage from './LoginFolder/LoginPage'
+
 import { Provider } from 'react-redux'
 import PageContainer from './PageContainer'
 import store from './redux/store'
@@ -11,7 +11,6 @@ function App() {
     <Provider store={store}>
         <div className="App">
           <Route path="/" component={PageContainer} />
-          {/*<PageContainer/>*/}
         </div>
     </Provider>
     </Switch>

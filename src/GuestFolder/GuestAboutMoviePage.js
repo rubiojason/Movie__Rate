@@ -272,109 +272,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
         }
     }, [])
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-
-        if (popIndex[0] !== '') {
-            gsap.fromTo(popNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([popNavSearchAnim.current, popNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([popTitleAnim.current, popMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([popScoreItAnim.current, popScoreAnim.current, popGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(popSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(popBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (topRatedIndex[0] !== '') {
-            gsap.fromTo(ratedNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([ratedNavSearchAnim.current, ratedNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([ratedTitleAnim.current, ratedMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([ratedScoreItAnim.current, ratedScoreAnim.current, ratedGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(ratedSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(ratedBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (nowPlayingIndex[0] !== '') {
-            gsap.fromTo(playingNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([playingNavSearchAnim.current, playingNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([playingTitleAnim.current, playingMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([playingScoreItAnim.current, playingScoreAnim.current, playingGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(playingSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(playingBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (popTvIndex[0] !== '') {
-            gsap.fromTo(popTvNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([popTvNavSearchAnim.current, popTvNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([popTvTitleAnim.current, popTvMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([popTvScoreItAnim.current, popTvScoreAnim.current, popTvGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(popTvSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(popTvBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (airingTodayIndex[0] !== '') {
-            gsap.fromTo(airingNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([airingNavSearchAnim.current, airingNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([airingTitleAnim.current, airingMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([airingScoreItAnim.current, airingScoreAnim.current, airingGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(airingSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(airingBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (guestSearchIndex[0] !== '') {
-            gsap.fromTo(searchNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([searchNavSearchAnim.current, searchNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([searchTitleAnim.current, searchMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([searchScoreItAnim.current, searchScoreAnim.current, searchGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(searchSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(searchBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-
-        else if (guestSearchTvIndex[0] !== '') {
-            gsap.fromTo(searchTvNavImgAnim.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-            gsap.fromTo([searchTvNavSearchAnim.current, searchTvNavSearchImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-            gsap.fromTo([searchTvTitleAnim.current, searchTvMovieImgAnim.current], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, delay: 1.5 })
-
-            gsap.fromTo([searchTvScoreItAnim.current, searchTvScoreAnim.current, searchTvGenreAnim.current], { opacity: 0, y:50 }, { opacity: 1, y: 0, duration: 1, delay: 2.25 })
-
-            gsap.fromTo(searchTvSynopisAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-
-            gsap.fromTo(searchTvBackgroundAnim.current, { opacity: 0 }, { opacity: 1, duration: 1, delay: 3 })
-        }
-    }, [])
-    //useEffect 
-
     //functions 
     const handleSubmitSearch = e => {
         e.preventDefault()
@@ -426,7 +323,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <nav>
                             <div className="img-movie-container" ref={popNavImgAnim} >
                                 <Link to="/movie_project/">
-                                    <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                                    <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
 
@@ -434,7 +331,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                                 <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch}>
                                     <input type="text" placeholder="Search" ref={popNavSearchAnim} />
                                     <button className="search-icon-container" ref={popNavSearchImgAnim}>
-                                        <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                        <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                     </button>
                                 </form>
                             </div>
@@ -445,6 +342,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${mostpopbackpic[popIndex[0]]})`, 
                             backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={popBackgroundAnim}></div>
+
+                        <div className="dark-overlay-page"></div>
 
                         <div className="about-movie-title-container" ref={popTitleAnim}>
                             {mostpoptitle[popIndex[0]]}
@@ -459,24 +358,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <div className="right-content">
 
                                 <div className="top-content-in-right">
-
-                                    <div className="score-it-container" ref={popScoreItAnim}>
-                                        <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10"  list="data"/>*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                            
-                                    </div>
 
                                     <div className="score-container" ref={popScoreAnim}>
                                         <div className="side-title">Score</div>
@@ -530,7 +411,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <nav>
                             <div className="img-movie-container" ref={ratedNavImgAnim}>
                                 <Link to="/movie_project/">
-                                    <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                                    <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                                 
                             </div>
@@ -539,7 +420,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                                 <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch}>
                                     <input type="text" placeholder="Search" ref={ratedNavSearchAnim} />
                                     <button className="search-icon-container" type="submit" ref={ratedNavSearchImgAnim} >
-                                        <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                        <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                     </button>
                                 </form>
                             </div>
@@ -550,6 +431,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${topratedbackpic[topRatedIndex[0]]})`, 
                             backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={ratedBackgroundAnim}></div>
+
+                        <div className="dark-overlay-page"></div>
 
                         <div className="about-movie-title-container" ref={ratedTitleAnim}>
                             {topratedtitle[topRatedIndex[0]]}
@@ -565,23 +448,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                                 <div className="top-content-in-right">
 
-                                    <div className="score-it-container" ref={ratedScoreItAnim} >
-                                        <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                                
-                                    </div>
 
                                     <div className="score-container" ref={ratedScoreAnim} >
                                         <div className="side-title">Score</div>
@@ -634,7 +500,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                     <nav>
                         <div className="img-movie-container" ref={playingNavImgAnim} >
                             <Link to="/movie_project/">
-                                <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                                <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
                         </div>
@@ -643,7 +509,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch} >
                                 <input type="text" placeholder="Search" ref={playingNavSearchAnim} />
                                 <button className="search-icon-container" type="submit" ref={playingNavSearchImgAnim} >
-                                   <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" /> 
+                                   <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" /> 
                                 </button>
                             </form>
                         </div>
@@ -654,6 +520,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${nowplaybackpic[nowPlayingIndex[0]]})`, 
                         backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={playingBackgroundAnim} ></div>
+
+                    <div className="dark-overlay-page"></div>
 
                     <div className="about-movie-title-container" ref={playingTitleAnim} >
                         {nowplaytitle[nowPlayingIndex[0]]}
@@ -668,24 +536,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <div className="right-content">
 
                             <div className="top-content-in-right">
-
-                                <div className="score-it-container" ref={playingScoreItAnim} >
-                                    <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                                                
-                                </div>
 
                                 <div className="score-container" ref={playingScoreAnim} >
                                     <div className="side-title">Score</div>
@@ -739,7 +589,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                     <nav>
                         <div className="img-movie-container" ref={popTvNavImgAnim} >
                             <Link to="/movie_project/">
-                                <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                                <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
                         </div>
@@ -748,7 +598,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch}>
                                 <input type="text" placeholder="Search" ref={popTvNavSearchAnim} />
                                 <button className="search-icon-container" type="submit" ref={popTvNavSearchImgAnim} >
-                                    <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                    <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                 </button>
                             </form>
                         </div>
@@ -759,6 +609,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${mostpoptvbackpic[popTvIndex[0]]})`, 
                         backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={popTvBackgroundAnim} ></div>
+
+                    <div className="dark-overlay-page"></div>
 
                     <div className="about-movie-title-container" ref={popTvTitleAnim} >
                         {mostpoptvtitle[popTvIndex[0]]}
@@ -773,23 +625,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <div className="right-content">
 
                             <div className="top-content-in-right">
-
-                                <div className="score-it-container" ref={popTvScoreItAnim} >
-                                    <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>                        
-                                </div>
 
                                 <div className="score-container" ref={popTvScoreAnim} >
                                     <div className="side-title">Score</div>
@@ -843,7 +678,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                     <nav>
                         <div className="img-movie-container" ref={airingNavImgAnim} >
                             <Link to="/movie_project/">
-                               <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
+                               <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
 
@@ -851,7 +686,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch} >
                                 <input type="text" placeholder="Search" ref={airingNavSearchAnim} />
                                 <button className="search-icon-container" type="submit" ref={airingNavSearchImgAnim} >
-                                    <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                    <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                 </button>
                             </form>
                         </div>
@@ -862,6 +697,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${airingtodaybackpic[airingTodayIndex[0]]})`, 
                         backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={airingBackgroundAnim} ></div>
+
+                    <div className="dark-overlay-page"></div>
 
                     <div className="about-movie-title-container" ref={airingTitleAnim} >
                         {airingtodaytitle[airingTodayIndex[0]]}
@@ -876,24 +713,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <div className="right-content">
 
                             <div className="top-content-in-right">
-
-                                <div className="score-it-container" ref={airingScoreItAnim} >
-                                    <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                                                
-                                </div>
 
                                 <div className="score-container" ref={airingScoreAnim} >
                                     <div className="side-title">Score</div>
@@ -947,7 +766,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                     <nav>
                         <div className="img-movie-container" ref={searchNavImgAnim} >
                             <Link to="/movie_project/">
-                                <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
+                                <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
 
@@ -955,7 +774,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch} >
                                 <input type="text" placeholder="Search" ref={searchNavSearchAnim} />
                                 <button className="search-icon-container" type="submit" ref={searchNavSearchImgAnim} >
-                                    <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                    <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                 </button>
                             </form>
                         </div>
@@ -966,6 +785,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${guestsearchbackpic[guestSearchIndex[0]]})`, 
                         backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={searchBackgroundAnim} ></div>
+
+                    <div className="dark-overlay-page"></div>
 
                     <div className="about-movie-title-container" ref={searchTitleAnim} >
                         {guestsearchtitle[guestSearchIndex[0]]}
@@ -980,24 +801,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <div className="right-content">
 
                             <div className="top-content-in-right">
-
-                                <div className="score-it-container" ref={searchScoreItAnim} >
-                                    <div className="side-title">Score it</div>
-                                        {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                            <select id="data" >
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                                                
-                                </div>
 
                                 <div className="score-container" ref={searchScoreAnim} >
                                     <div className="side-title">Score</div>
@@ -1051,7 +854,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                         <nav>
                             <div className="img-movie-container" ref={searchTvNavImgAnim} >
                                 <Link to="/movie_project/">
-                                    <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                                    <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
 
@@ -1059,7 +862,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                                 <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch} >
                                     <input type="text" placeholder="Search" ref={searchTvNavSearchAnim} />
                                     <button className="search-icon-container" type="submit" ref={searchTvNavSearchImgAnim} >
-                                        <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
+                                        <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg" />
                                     </button>
                                 </form>
                             </div>
@@ -1070,6 +873,8 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <div className="about-movie-overlay" style={{background: `url(${IMG_URL}original${guestsearchtvbackpic[guestSearchTvIndex[0]]})`, 
                             backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}} ref={searchTvBackgroundAnim} ></div>
+
+                        <div className="dark-overlay-page"></div>
 
                         <div className="about-movie-title-container" ref={searchTvTitleAnim} >
                             {guestsearchtvtitle[guestSearchTvIndex[0]]}
@@ -1084,24 +889,6 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
                             <div className="right-content">
 
                                 <div className="top-content-in-right">
-
-                                    <div className="score-it-container" ref={searchTvScoreItAnim} >
-                                        <div className="side-title">Score it</div>
-                                            {/*<input placeholder="1/10" type="" list="data" onClick={handleRateClick} />*/}
-                                                <select id="data" >
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                </select>
-                                                                    
-                                    </div>
 
                                     <div className="score-container" ref={searchTvScoreAnim} >
                                         <div className="side-title">Score</div>

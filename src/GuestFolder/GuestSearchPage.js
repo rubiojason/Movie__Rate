@@ -39,6 +39,8 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
     //useState 
     const [search, setSearch] = useState('')
     const [redirectState, setRedirectState] = useState(false)
+
+    const [gridTempState, setGridTempState] = useState(''); 
     //useState 
 
     //useRef 
@@ -105,27 +107,68 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
     //functions 
 
     //useEffect 
-    useEffect(() => {
-        gsap.fromTo(movieTitleAnim.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: 0.1, 
-            scrollTrigger: 
-                {
-                    trigger: movieTitleAnim.current, 
-                    id: 'movie-title', 
-                    start: 'top 80%', 
-                    markers: false 
-                } 
-            })
 
-        gsap.fromTo(tvTitleAnim.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: 0.1, 
-            scrollTrigger: 
-                {
-                    trigger: tvTitleAnim.current, 
-                    id: 'tv-title', 
-                    start: 'top 80%', 
-                    markers: false  
-                } 
-            })
-    }, [])
+    //window width 
+
+    const size = useWindowSize();
+
+        function useWindowSize() {
+        // Initialize state with undefined width/height so server and client renders match
+        // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+        const [windowSize, setWindowSize] = useState({
+          width: undefined,
+          height: undefined,
+        });
+      
+        useEffect(() => {
+          // Handler to call on window resize
+          function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+              width: window.innerWidth,
+              height: window.innerHeight,
+            });
+          }
+
+          // Add event listener
+          window.addEventListener("resize", handleResize);
+          
+          // Call handler right away so state gets updated with initial window size
+          handleResize();
+          
+          // Remove event listener on cleanup
+          return () => window.removeEventListener("resize", handleResize);
+        }, []); // Empty array ensures that effect is only run on mount
+      
+        return windowSize;
+    }
+
+    useEffect(() => {
+        if (size.width <= 1000) {
+          setGridTempState('repeat(auto-fit, minmax(110px, 2fr))')
+        }
+
+        else if (size.width <= 1500) {
+          setGridTempState('repeat(auto-fit, minmax(160px, 2fr))')
+        }
+
+        else if (size.width <= 2000) {
+          setGridTempState('repeat(auto-fit, minmax(210px, 2fr))')
+        }
+
+        else if (size.width <= 3000) {
+          setGridTempState('repeat(auto-fit, minmax(260px, 2fr))')
+        }
+
+        else if (size.width <= 3700) {
+          setGridTempState('repeat(auto-fit, minmax(360px, 2fr))')
+        }
+        
+        else if (size.width <= 4000 || size.width > 4000) {
+          setGridTempState('repeat(auto-fit, minmax(460px, 2fr))')
+        }
+    }, [size.width])
+
     //useEffect 
 
 
@@ -143,7 +186,7 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
                         <form className="search-button" onSubmit={handleSubmitSearch} onChange={handleOnChangeSearch} >
                             <input type="text" placeholder="Search" />
                             <button className="search-icon-container" type="submit">
-                                <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg"/>
+                                <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg"/>
                             </button>
                         </form>
                     </div>
@@ -153,8 +196,8 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
 
                 <div className="movies-search-title" ref={movieTitleAnim} id="movie-title">Movies</div>
 
-                <div className="few">
-                    <div className="row">
+                <div className="contain grid-search-system" id="search-center">
+                    <div className="row" id="search-grid" style={{ gridTemplateColumns: gridTempState }} >
                         {
                             movieFrontPic.map(pic => 
 
@@ -163,33 +206,21 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
                                     pic === null ? <div style={{display: 'none'}}></div> : 
                                 
                                     <div className="row__inner">
-                                        <Link to="/movie_project/guestaboutmovie/">
-                                            <div className="tile" onMouseLeave={putDownOpacity} onClick={() => handleMovieImgClick(pic)} >
+                                        <div className="tile" onClick={() => handleMovieImgClick(pic)} >
+                                            <Link to="/movie_project/guestaboutmovie/">
                                                 <div className="tile__media">
                                                     <img key={pic} alt="" src={IMG_URL + IMG_SIZE + pic} />
                                                 </div>
                                                 <div className="tile__details">
                                                     <div className="tile-details-overlay">
-                                                        {/*<div className="tile__options">
-                                                            <img onMouseOver={putUpOpacity} alt="" src="https://freight.cargo.site/t/original/i/3a220666904fe9d4aabaa1a088a202b1b23f8f5cb38b75b7c23bbc3e1a287aff/Menu-White-Dots.png" />
-                                                        </div>
-                                                        <div className="pop-up-options" style={{opacity: opacity}}>
-                                                            <Link to="/guestaboutmovie">
-                                                                <div className="inside-pop-up" onClick={() => handleMovieImgClick(pic)}>
-                                                                    Description
-                                                                </div>
-                                                            </Link>
-                                                        </div>*/}
                                                         <div className="tile__title" key={pic}>
                                                             {movieTitle[movieFrontPic.indexOf(pic)]}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    
-
-                                </div>
+                                            </Link> 
+                                        </div>
+                                    </div>
                                 )
                         }
                     </div>
@@ -197,40 +228,29 @@ function GuestSearchPage({ changeMovieSearchIndex, guestAboutMoviePage, changeMo
 
                 <div className="movies-search-title" ref={tvTitleAnim} id="tv-title">TV Shows</div>
 
-                <div className="few">
-                    <div className="row">
+                <div className="contain grid-search-system" id="search-center">
+                    <div className="row" id="search-grid" style={{ gridTemplateColumns: gridTempState }} >
                         {
                             tvFrontPic.map(pic => 
 
                                     pic === null ? <div style={{display: 'none'}}></div> : 
                                 
                                     <div className="row__inner">
-                                        <Link to="/movie_project/guestaboutmovie/">
-                                            <div className="tile" onMouseLeave={putDownOpacity} onClick={() => handleTvImgClick(pic)}>
+                                        <div className="tile" onMouseLeave={putDownOpacity} onClick={() => handleTvImgClick(pic)}>
+                                            <Link to="/movie_project/guestaboutmovie/">
                                                 <div className="tile__media">
-                                                    <img alt="" src={IMG_URL + IMG_SIZE + pic} />
+                                                    <img id="search-img-picture" alt="" src={IMG_URL + IMG_SIZE + pic} />
                                                 </div>
                                                 <div className="tile__details">
                                                     <div className="tile-details-overlay">
-                                                        {/*<div className="tile__options">
-                                                            <img onMouseOver={putUpOpacity} alt="" src="https://freight.cargo.site/t/original/i/3a220666904fe9d4aabaa1a088a202b1b23f8f5cb38b75b7c23bbc3e1a287aff/Menu-White-Dots.png" />
-                                                        </div>
-                                                        <div className="pop-up-options" style={{opacity: opacity}}>
-                                                            <Link to="/guestaboutmovie">
-                                                               <div className="inside-pop-up" onClick={() => handleTvImgClick(pic)}>
-                                                                    Description
-                                                                </div> 
-                                                            </Link>
-                                                        </div>*/}
                                                         <div className="tile__title">
                                                             {tvTitle[tvFrontPic.indexOf(pic)]}
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </Link>
-                                </div>
-                                
+                                            </Link>
+                                        </div>
+                                    </div>
                                 )
                             }
                         

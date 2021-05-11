@@ -26,7 +26,6 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
     //usestate 
 
     //useRef 
-        const navImg = useRef(null)
         const inputAnim = useRef(null)
         const inputImgAnim = useRef(null)
         const movieImgAnim = useRef(null)
@@ -34,22 +33,6 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
         const movieRateAnim = useRef(null)
         const movieGenreAnim = useRef(null)
     //useRef 
-
-    //useEffect 
-    useEffect(() => {
-        gsap.fromTo(navImg.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, delay: 0.25 })
-
-        gsap.fromTo([inputAnim.current, inputImgAnim.current], { y: -200 }, { y: 0, duration: 0.75, delay: 0.75 })
-
-        gsap.fromTo(movieImgAnim.current, { opacity: 0 }, { opacity: 1, duration: 1.5, delay: 1.5 })
-
-        gsap.fromTo(movieTitleAnim.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: 2 })
-    
-        gsap.fromTo(movieRateAnim.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: 2.25 })
-
-        gsap.fromTo(movieGenreAnim.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 2.5 })
-    }, [])
-    //useEffect 
 
     //functions 
     const handleSubmitSearch = e => {
@@ -83,8 +66,8 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
         <div className="big-welcome-img">
 
             <nav>
-                <div className="img-movie-container" ref={navImg}>
-                    <img onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
+                <div className="img-movie-container">
+                    <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                 </div>
 
                 <div className="login-signup">
@@ -94,7 +77,7 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
                         </div>
 
                         <button className="search-icon-container" ref={inputImgAnim}>
-                            <img className="dis-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg"/>
+                            <img className="dis-img" id="search-img" alt="" src="https://rubiojason.github.io/Around-The-World/static/media/SearchIcon.e1a3c478.svg"/>
                         </button>
                     </form>
                 </div>

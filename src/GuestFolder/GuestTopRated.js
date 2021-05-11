@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -23,11 +23,6 @@ function GuestTopRated({ topratedfrontpic, topratedbackpic, topratedtitle,
     const frontpic = Array.from(topratedfrontpic)
     const title = Array.from(topratedtitle)
 
-    //useRef 
-    const ratedTitleAnim = useRef(null)
-    const ratedSeeAllAnim = useRef(null)
-    //useRef 
-
     //functions 
     const handleMovieImgClick = e => {
       console.log('its running')
@@ -43,15 +38,77 @@ function GuestTopRated({ topratedfrontpic, topratedbackpic, topratedtitle,
       guestAboutMoviePage()
     }
 
+
+    //window width 
+
+    const size = useWindowSize();
+
+        function useWindowSize() {
+        // Initialize state with undefined width/height so server and client renders match
+        // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+        const [windowSize, setWindowSize] = useState({
+          width: undefined,
+          height: undefined,
+        });
+      
+        useEffect(() => {
+          // Handler to call on window resize
+          function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+              width: window.innerWidth,
+              height: window.innerHeight,
+            });
+          }
+
+          // Add event listener
+          window.addEventListener("resize", handleResize);
+          
+          // Call handler right away so state gets updated with initial window size
+          handleResize();
+          
+          // Remove event listener on cleanup
+          return () => window.removeEventListener("resize", handleResize);
+        }, []); // Empty array ensures that effect is only run on mount
+      
+        return windowSize;
+    }
+
+
     const changeMovieDisplay = () => {
       if (displayState === '') {
         setDisplayState('grid')
-        setGridTempState('repeat(auto-fit, minmax(250px, 1fr))')
+        setScroll("hidden"); 
         setSeeState('see less')
+
+        if (size.width <= 1000) {
+          setGridTempState('repeat(auto-fit, minmax(110px, 2fr))')
+        }
+
+        else if (size.width <= 1500) {
+          setGridTempState('repeat(auto-fit, minmax(160px, 2fr))')
+        }
+
+        else if (size.width <= 2000) {
+          setGridTempState('repeat(auto-fit, minmax(210px, 2fr))')
+        }
+
+        else if (size.width <= 3000) {
+          setGridTempState('repeat(auto-fit, minmax(260px, 2fr))')
+        }
+
+        else if (size.width <= 3700) {
+          setGridTempState('repeat(auto-fit, minmax(360px, 2fr))')
+        }
+        
+        else if (size.width <= 4000 || size.width > 4000) {
+          setGridTempState('repeat(auto-fit, minmax(460px, 2fr))')
+        }
       }
       else {
         setDisplayState('')
         setGridTempState('')
+        setScroll("scroll"); 
         setSeeState('see all')
       }
     }
@@ -60,68 +117,45 @@ function GuestTopRated({ topratedfrontpic, topratedbackpic, topratedtitle,
     //useState 
     const [displayState, setDisplayState] = useState('')
     const [gridTempState, setGridTempState] = useState('')
-    const [seeState, setSeeState] = useState('see all')
+    const [Scroll, setScroll] = useState(''); 
+    const [seeState, setSeeState] = useState('see all'); 
     //useState 
-
-    //useEffect 
-    useEffect(() => {
-      gsap.fromTo(ratedTitleAnim.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, delay: 0.1, 
-        scrollTrigger: 
-        {
-          id: 'rated-title', 
-          trigger: ratedTitleAnim.current, 
-          start: 'top 80%', 
-          //toggleActions: 'play none reverse none', 
-          markers: false, 
-        } 
-      })
-
-      gsap.fromTo(ratedSeeAllAnim.current, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, x: 0, ease: 'none', duration: 1, delay: 0.1, 
-        scrollTrigger: 
-        {
-          id: 'rated-see-all', 
-          trigger: ratedSeeAllAnim.current, 
-          start: 'top 80%', 
-          markers: false, 
-        } 
-      })
-    })
-    //useEffect 
 
     return (
         <div>
             <div className="most-popular-container">
 
               <div className="title-see-all">
-                  <div className="left-title" ref={ratedTitleAnim} id="rated-title" >Top Rated Movies</div>
-                  <div className="right-see-all" onClick={changeMovieDisplay} >
-                    <span className="see-all" ref={ratedSeeAllAnim} id="rated-see-all" >{seeState}</span>
+                  <div className="left-title" id="rated-title" >Top Rated Movies</div>
+                  <div className="right-see-all">
+                    <span className="see-all" id="rated-see-all" onClick={changeMovieDisplay} >{seeState}</span>
                   </div>
               </div>
 
               <div className="contain">
-                <div className="row" style={{display: displayState, gridTemplateColumns: gridTempState}}>
+                <div className="row" style={{display: displayState, gridTemplateColumns: gridTempState, overflowX: Scroll}}>
                   {
                     frontpic.map(pic => 
                       <div className="row__inner">
-                        <Link to="/movie_project/guestaboutmovie/">
                           <div className="tile" onClick={() => handleMovieImgClick(pic)} >
-                            <div className="tile__media" >
-                              <img alt="" src={IMG_URL + IMG_SIZE + pic} />
-                            </div>
-                            <div className="tile__details">
-                              <div className="tile-details-overlay">
-                                <div className="tile__title">
-                                {
-                                  title[frontpic.indexOf(pic)]
-                                }
+                            <Link to="/movie_project/guestaboutmovie/">
+
+                              <div className="tile__media" >
+                                <img alt="" src={IMG_URL + IMG_SIZE + pic} />
+                              </div>
+
+                              <div className="tile__details">
+                                <div className="tile-details-overlay">
+                                  <div className="tile__title">
+                                  {
+                                    title[frontpic.indexOf(pic)]
+                                  }
+                                  </div>
                                 </div>
                               </div>
-                                
-                            </div>
+
+                            </Link>  
                         </div>
-                        </Link>
-                        
                       </div>
                     )
                   }
