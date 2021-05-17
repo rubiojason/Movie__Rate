@@ -295,7 +295,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
     //conditionals 
     if (redirectState) {
-        return <Redirect to="/guestsearchpage" />
+        return <Redirect to="/Movie_Rate/guestsearchpage" />
     }
 
     if (guestSearchIndex[0] === '' && airingTodayIndex[0] === '' && 
