@@ -18,7 +18,7 @@ function PageContainer(props) {
 
           {/*<Redirect exact from="/Movie-Rate" to="/Movie_Rate" />*/}
 
-          <Route path="/Movie-Rate" exact component={GuestHomePage} />
+          <Route path="/Movie_Rate" exact component={GuestHomePage} />
 
           <Route path="/Movie_Rate/guestaboutmovie" component={GuestAboutMoviePage} />
 
