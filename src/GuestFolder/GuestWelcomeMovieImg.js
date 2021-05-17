@@ -44,7 +44,7 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
             fetchMovieChangeSearchData(search)
             fetchMovieChangeSearchTvData(search)
             //guestSearchPage()
-            history.push('/Movie_Rate/')
+            history.push('/Movie__Rate/')
             setRedirectState(true)      
         }
     }
@@ -58,7 +58,7 @@ function GuestWelcomeMovieImg({ imgpic, imgtitle, imgrate, imggenre, loginPage,
 
     //conditionals 
     if (redirectState) {
-        return <Redirect to="/Movie_Rate/guestsearchpage/" />
+        return <Redirect to="/Movie__Rate/guestsearchpage/" />
     }
     //conditionals 
 

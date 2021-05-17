@@ -295,7 +295,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
     //conditionals 
     if (redirectState) {
-        return <Redirect to="/Movie_Rate/guestsearchpage" />
+        return <Redirect to="/Movie__Rate/guestsearchpage" />
     }
 
     if (guestSearchIndex[0] === '' && airingTodayIndex[0] === '' && 
@@ -322,7 +322,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={popNavImgAnim} >
-                                <Link to="/Movie_Rate/">
+                                <Link to="/Movie__Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
@@ -410,7 +410,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={ratedNavImgAnim}>
-                                <Link to="/Movie_Rate/">
+                                <Link to="/Movie__Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                                 
@@ -499,7 +499,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={playingNavImgAnim} >
-                            <Link to="/Movie_Rate/">
+                            <Link to="/Movie__Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
@@ -588,7 +588,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={popTvNavImgAnim} >
-                            <Link to="/Movie_Rate/">
+                            <Link to="/Movie__Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                             </Link>
                             
@@ -677,7 +677,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={airingNavImgAnim} >
-                            <Link to="/Movie_Rate/">
+                            <Link to="/Movie__Rate/">
                                <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
@@ -765,7 +765,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                     <nav>
                         <div className="img-movie-container" ref={searchNavImgAnim} >
-                            <Link to="/Movie_Rate/">
+                            <Link to="/Movie__Rate/">
                                 <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" /> 
                             </Link>
                         </div>
@@ -853,7 +853,7 @@ function GuestAboutMoviePage({ mostpopindex, mostpopfrontpic, mostpopbackpic,
 
                         <nav>
                             <div className="img-movie-container" ref={searchTvNavImgAnim} >
-                                <Link to="/Movie_Rate/">
+                                <Link to="/Movie__Rate/">
                                     <img className="this-aint-working" onClick={guestPage} src="https://www.nicepng.com/png/full/670-6708259_action-icon-png.png" alt="" />
                                 </Link>
                             </div>
