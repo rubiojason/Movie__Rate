@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import Carousel from "react-elastic-carousel";
+
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { mostPopularTvIndex, guestAboutMoviePage, mostPopularResetIndex, 
          topRatedResetIndex, nowPlayingResetIndex, mostPopularTvResetIndex, 
@@ -38,6 +41,14 @@ function GuestMostPopularTv({ mostpoptvfrontpic, mostpoptvbackpic, mostpoptvtitl
       guestAboutMoviePage()
     }
 
+    const breakPoints = [
+      { width: 1, itemsToShow: 1 },
+      { width: 550, itemsToShow: 3 },
+      { width: 768, itemsToShow: 4 },
+      { width: 1200, itemsToShow: 5 },
+      { width: 1500, itemsToShow: 6 },
+    ];
+
     //window width 
 
     const size = useWindowSize();
@@ -73,92 +84,44 @@ function GuestMostPopularTv({ mostpoptvfrontpic, mostpoptvbackpic, mostpoptvtitl
         return windowSize;
     }
 
-
-
-    const changeMovieDisplay = () => {
-      if (displayState === '') {
-        setDisplayState('grid')
-        setScroll("hidden"); 
-        setSeeState('see less')
-
-        if (size.width <= 1000) {
-          setGridTempState('repeat(auto-fit, minmax(110px, 2fr))')
-        }
-
-        else if (size.width <= 1500) {
-          setGridTempState('repeat(auto-fit, minmax(160px, 2fr))')
-        }
-
-        else if (size.width <= 2000) {
-          setGridTempState('repeat(auto-fit, minmax(210px, 2fr))')
-        }
-
-        else if (size.width <= 3000) {
-          setGridTempState('repeat(auto-fit, minmax(260px, 2fr))')
-        }
-
-        else if (size.width <= 3700) {
-          setGridTempState('repeat(auto-fit, minmax(360px, 2fr))')
-        }
-        
-        else if (size.width <= 4000 || size.width > 4000) {
-          setGridTempState('repeat(auto-fit, minmax(460px, 2fr))')
-        }
-      }
-      else {
-        setDisplayState('')
-        setGridTempState('')
-        setScroll("scroll"); 
-        setSeeState('see all')
-      }
-    }
-    //useEffect
-
-    //useState 
-    const [displayState, setDisplayState] = useState('')
-    const [gridTempState, setGridTempState] = useState('')
-    const [Scroll, setScroll] = useState(''); 
-    const [seeState, setSeeState] = useState('see all'); 
-    //useState 
-
     return (
         <div>
             <div className="most-popular-container">
 
               <div className="title-see-all">
                   <div className="left-title" id="pop-tv-title" >Most Popular TV Shows</div>
-                  <div className="right-see-all">
-                    <div className="see-all" id="pop-tv-see-all" onClick={changeMovieDisplay} >{seeState}</div>
-                  </div>
+                  <div className="right-see-all"></div>
               </div>
 
               <div className="contain">
-                <div className="row" style={{display: displayState, gridTemplateColumns: gridTempState, overflowX: Scroll}}>
-                  {
-                    frontpic.map(pic => 
-                      <div className="row__inner">
-                          <div className="tile" onClick={() => handleMovieImgClick(pic)} >
-                            <Link to="/Movie__Rate/guestaboutmovie/">
+                <div className="row">
+                  <Carousel breakPoints={breakPoints}>
+                    {
+                      frontpic.map(pic => 
+                        <div className="row__inner">
+                            <div className="tile" onClick={() => handleMovieImgClick(pic)} >
+                              <Link to="/Movie__Rate/guestaboutmovie/">
 
-                              <div className="tile__media" >
-                                <img alt="" src={IMG_URL + IMG_SIZE + pic} />
-                              </div>
-                              
-                              <div className="tile__details">
-                                <div className="tile-details-overlay">
-                                  <div className="tile__title">
-                                  {
-                                    title[frontpic.indexOf(pic)]
-                                  }
+                                <div className="tile__media" >
+                                  <img alt="" src={IMG_URL + IMG_SIZE + pic} />
+                                </div>
+                                
+                                <div className="tile__details">
+                                  <div className="tile-details-overlay">
+                                    <div className="tile__title">
+                                    {
+                                      title[frontpic.indexOf(pic)]
+                                    }
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
 
-                            </Link>
+                              </Link>
+                          </div>
                         </div>
-                      </div>
-                    )
-                  }
+                      )
+                    }
+                  </Carousel>
                 </div>
               </div>
             </div>

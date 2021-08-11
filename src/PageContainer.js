@@ -16,7 +16,7 @@ function PageContainer(props) {
       <BrowserRouter>
         <Switch>
 
-          {/*<Redirect exact from="/Movie-Rate" to="/Movie_Rate" />*/}
+          <Redirect exact from="/Movie_Rate" to="/Movie__Rate" />
 
           <Route path="/Movie__Rate" exact component={GuestHomePage} />
 
