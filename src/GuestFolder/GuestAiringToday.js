@@ -91,6 +91,39 @@ function GuestMostPopularTv({ airingtodayfrontpic, airingtodaybackpic, airingtod
               </div>
 
               <div className="contain">
+                {
+                  size.width < 901 ? 
+
+                  <div className="row" style={{overflow: 'hidden', overflowX: 'scroll'}}>
+                    {
+                      frontpic.map(pic => 
+                        <div className="row__inner">
+                            <div className="tile" style={{margin: '0px 10px'}} onClick={() => handleMovieImgClick(pic)} >
+                              <Link to="/Movie__Rate/guestaboutmovie/">
+
+                                <div className="tile__media" >
+                                  <img alt="" src={IMG_URL + IMG_SIZE + pic} />
+                                </div>
+
+                                <div className="tile__details">
+                                  <div className="tile-details-overlay">
+                                    <div className="tile__title">
+                                    {
+                                      title[frontpic.indexOf(pic)]
+                                    }
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </Link>
+                            </div>
+                        </div>
+                      )
+                    }
+                  </div> 
+
+                  : 
+
                 <div className="row">
                   <Carousel breakPoints={breakPoints}>
                     {
@@ -120,10 +153,10 @@ function GuestMostPopularTv({ airingtodayfrontpic, airingtodaybackpic, airingtod
                     }
                   </Carousel>
                 </div>
+                }
               </div>
             </div>
           </div>
-            
     )
 }
 
